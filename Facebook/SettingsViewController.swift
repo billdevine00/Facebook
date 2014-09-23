@@ -16,7 +16,7 @@ class SettingsViewController: UIViewController, UIActionSheetDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        scrollView.contentSize = CGSizeMake(320, settingsImageView.image!.size.height)
+        scrollView.contentSize = CGSizeMake(320, 1900)
     }
 
     override func viewDidAppear(animated: Bool) {
@@ -43,4 +43,22 @@ class SettingsViewController: UIViewController, UIActionSheetDelegate {
     }
     */
 
+    @IBAction func onSignOut(sender: AnyObject) {
+        var actionSheet = UIActionSheet(title: "Log Out", delegate: self, cancelButtonTitle: "Cancel", destructiveButtonTitle: "Log Out")
+        actionSheet.showInView(view)
+    }
+    
+    func actionSheet(actionSheet: UIActionSheet!, clickedButtonAtIndex buttonIndex:Int)
+    
+    {
+        if (buttonIndex == 0)
+        {
+        performSegueWithIdentifier("signOutSegue", sender: nil)
+        }
+       }
+    
+
+    //buttonIndex is 1 for Cancel
+    // buttonIndex ranges from 1-n for the other buttons.
 }
+
